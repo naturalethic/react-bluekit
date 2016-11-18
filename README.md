@@ -23,7 +23,9 @@ createBlueKit({
   // your directory where components are located
   baseDir: `${__dirname}/src/browser`,
   // relative paths from base dir where to look for components
-  paths: ['./components/', './auth']
+  paths: ['./components/', './auth'],
+  // set to true when providing simple components such as `export default function MyComponent() { <div>Hello</div> }`
+  noSpecialReplacements: true
 });
 ```
 
@@ -84,7 +86,14 @@ gulp svg-icon
 
 # run unit tests
 gulp ava
+
+# run eslint
+gulp eslint
 ```
+
+## Additional info
+
+BlueKit automatically hides props that don’t affect the component’s look.
 
 If you get some kind of weird error and BlueKit doesn't load at all, try to reset localStorage by running `localStorage.clear();`. We are working on automatic checks of localStorage values.
 
